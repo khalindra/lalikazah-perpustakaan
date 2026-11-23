@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Katalog | PERPUSTAKAAN KEL 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body data-page="katalog">
+<div id="loader"><i class="bi bi-book-half"></i><b>PERPUSTAKAAN KEL 2</b></div>
+<header><nav class="navbar navbar-expand-md fixed-top" aria-label="Navigasi utama"><div class="container">
+<a class="navbar-brand brand" href="index.html"><i class="bi bi-book-half me-2"></i>PERPUSTAKAAN KEL 2</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nv" aria-label="Buka menu"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="nv"><ul class="navbar-nav ms-auto align-items-md-center"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link active" href="katalog.html">Katalog</a></li><li class="nav-item"><a class="nav-link" href="peminjaman.html">Peminjaman Saya</a></li><li class="nav-item"><a class="nav-link" href="tentang.html">Tentang Kami</a></li><li class="nav-item"><button type="button" id="tema" class="btn-tema" aria-label="Ganti tema terang atau gelap"><i class="bi bi-moon-stars-fill"></i></button></li></ul></div>
+</div></nav></header>
+<main>
+<section class="page-head"><div class="container"><h1>Jelajahi Koleksi Buku</h1><p class="mut">Telusuri seluruh koleksi, saring berdasarkan kategori atau status, lalu pinjam buku favoritmu.</p></div></section>
+<section class="pb-5" aria-label="Katalog buku"><div class="container">
+<div class="toolbar"><div class="row g-2">
+<div class="col-12 col-md-6"><input type="search" id="cari" class="form-control" placeholder="Cari judul atau pengarang..." aria-label="Cari buku"></div>
+<div class="col-6 col-md-3"><select id="fKat" class="form-select" aria-label="Kategori"><option value="">Semua kategori</option><option>Teknologi</option><option>Pendidikan</option><option>Novel</option><option>Sejarah</option><option>Bisnis</option><option>Sains</option></select></div>
+<div class="col-6 col-md-3"><select id="fStatus" class="form-select" aria-label="Status"><option value="semua">Semua status</option><option value="tersedia">Tersedia</option><option value="dipinjam">Dipinjam</option></select></div>
+<div class="col-6 col-md-4"><select id="fSort" class="form-select" aria-label="Urutkan"><option value="az">Judul A-Z</option><option value="za">Judul Z-A</option><option value="baru">Tahun terbaru</option><option value="lama">Tahun terlama</option></select></div>
+<div class="col-6 col-md-8 d-flex gap-2 justify-content-end"><button type="button" id="btnView" class="btn-soft py-2"><i class="bi bi-grid"></i> Grid</button><button type="button" class="btn-rose py-2" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="bi bi-plus-lg"></i> Tambah Buku</button></div>
+</div></div>
+<div class="row text-center g-2 mb-4"><div class="col-4"><div class="stat py-3"><b class="fs-2" id="sTotal">0</b><small>Total</small></div></div><div class="col-4"><div class="stat py-3"><b class="fs-2" id="sTersedia">0</b><small>Tersedia</small></div></div><div class="col-4"><div class="stat py-3"><b class="fs-2" id="sPinjam">0</b><small>Dipinjam</small></div></div></div>
+<div class="row g-4" id="daftar"></div>
+<div class="kosong d-none" id="kosong"><i class="bi bi-search-heart"></i><h3 class="mt-2">Buku tidak ditemukan</h3><p class="mut">Coba kata kunci atau filter yang lain.</p></div>
+</div></section>
+<div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="jdlTambah" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"><div class="modal-content">
+<div class="modal-header"><h2 class="modal-title fs-3" id="jdlTambah">Tambah Buku Baru</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button></div>
+<form id="formTambah" novalidate><div class="modal-body">
+<div class="mb-2"><label class="form-label" for="fIsbn">ISBN (13 digit)</label><input class="form-control" id="fIsbn" required pattern="[0-9]{13}" maxlength="13" inputmode="numeric"><div class="invalid-feedback"></div></div>
+<div class="mb-2"><label class="form-label" for="fJudul">Judul buku</label><input class="form-control" id="fJudul" required minlength="3"><div class="invalid-feedback"></div></div>
+<div class="mb-2"><label class="form-label" for="fPengarang">Pengarang</label><input class="form-control" id="fPengarang" required minlength="3"><div class="invalid-feedback"></div></div>
+<div class="mb-2"><label class="form-label" for="fPenerbit">Penerbit</label><input class="form-control" id="fPenerbit" required minlength="2"><div class="invalid-feedback"></div></div>
+<div class="row g-2 mb-2"><div class="col-6"><label class="form-label" for="fTahun">Tahun terbit</label><input type="number" class="form-control" id="fTahun" required min="1900" max="2026"><div class="invalid-feedback"></div></div>
+<div class="col-6"><label class="form-label" for="fKategori">Kategori</label><select class="form-select" id="fKategori" required><option value="">Pilih...</option><option>Teknologi</option><option>Pendidikan</option><option>Novel</option><option>Sejarah</option><option>Bisnis</option><option>Sains</option></select><div class="invalid-feedback"></div></div></div>
+<div class="mb-2"><label class="form-label" for="fSinopsis">Sinopsis</label><textarea class="form-control" id="fSinopsis" rows="3" required minlength="10"></textarea><div class="invalid-feedback"></div></div>
+</div><div class="modal-footer"><button type="submit" class="btn-rose">Simpan Buku</button></div></form></div></div></div>
+</main>
+<footer><div class="container"><div class="row g-4">
+<div class="col-12 col-md-5"><a class="brand fs-3" href="index.html"><i class="bi bi-book-half me-2"></i>PERPUSTAKAAN KEL 2</a><p class="mt-2">Perpustakaan digital kampus untuk menemukan cerita dan pengetahuan.</p></div>
+<div class="col-6 col-md-3"><h4>Navigasi</h4><ul class="list-unstyled"><li><a href="index.html">Home</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="peminjaman.html">Peminjaman Saya</a></li><li><a href="tentang.html">Tentang Kami</a></li></ul></div>
+<div class="col-6 col-md-4"><h4>Kontak</h4><p class="mb-1"><i class="bi bi-geo-alt me-2"></i>Gedung Perpustakaan, Pontianak</p><p class="mb-1"><i class="bi bi-envelope me-2"></i>halo@theliterary.ac.id</p><p><i class="bi bi-clock me-2"></i>Senin - Jumat, 08.00 - 17.00</p></div>
+</div><hr><small>&copy; 2026 PERPUSTAKAAN KEL 2. UAS Praktikum Pemrograman Web Dasar (K2).</small></div></footer>
+<button id="top" aria-label="Kembali ke atas"><i class="bi bi-arrow-up"></i></button>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body></html>
