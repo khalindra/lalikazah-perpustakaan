@@ -1,46 +1,185 @@
 <!DOCTYPE html>
 <html lang="id">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home | PERPUSTAKAAN KEL 2</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | PERPUSTAKAAN KEL 2</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body data-page="home">
-<div id="loader"><i class="bi bi-book-half"></i><b>PERPUSTAKAAN KEL 2</b></div>
-<header><nav class="navbar navbar-expand-lg fixed-top" aria-label="Navigasi utama"><div class="container">
-<a class="navbar-brand brand" href="index.html"><i class="bi bi-book-half me-2"></i>PERPUSTAKAAN KEL 2</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nv" aria-label="Buka menu"><span class="navbar-toggler-icon"></span></button>
-<div class="collapse navbar-collapse" id="nv"><ul class="navbar-nav ms-auto align-items-lg-center"><li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="katalog.html">Katalog</a></li><li class="nav-item"><a class="nav-link" href="peminjaman.html">Peminjaman Saya</a></li><li class="nav-item"><a class="nav-link" href="tentang.html">Tentang Kami</a></li><li class="nav-item"><button type="button" id="tema" class="btn-tema" aria-label="Ganti tema terang atau gelap"><i class="bi bi-moon-stars-fill"></i></button></li></ul></div>
-</div></nav></header>
-<main>
-<section class="hero" aria-label="Pengantar"><div class="container"><div class="row align-items-center g-5">
-<div class="col-12 col-lg-6 rv"><span class="chip"><i class="bi bi-stars me-1"></i>Digital Library Kampus</span><h1>Setiap Buku Membuka Dunia Baru.</h1>
-<p class="lead">Temukan cerita, jelajahi pengetahuan, dan pilih buku favoritmu melalui katalog perpustakaan digital kampus.</p>
-<div><a class="btn-rose" href="katalog.html">Jelajahi Katalog</a><a class="btn-soft" href="#kategori">Lihat Kategori</a></div></div>
-<div class="col-12 col-lg-6"><div class="scene" aria-hidden="true"><span class="fb fb1"></span><span class="fb fb2"></span><span class="fb fb3"></span><span class="fb fb4"></span>
-<div class="buku3d"><div class="hal kiri"></div><div class="hal kanan"></div><div class="hal flip"></div></div></div></div>
-</div></div></section>
-<section class="sec" aria-label="Pencarian"><div class="container"><form id="formCari" class="cari"><i class="bi bi-search"></i><input type="search" id="cariHome" class="form-control" placeholder="Cari judul atau pengarang..." required minlength="2" aria-label="Cari buku"><button class="btn-rose" type="submit">Cari</button></form></div></section>
-<section class="sec alt" aria-label="Statistik perpustakaan"><div class="container"><div class="row g-4">
-<div class="col-12 col-md-4 rv"><div class="stat"><b id="sTotal">0</b>Total koleksi buku</div></div>
-<div class="col-12 col-md-4 rv"><div class="stat"><b id="sTersedia">0</b>Buku tersedia</div></div>
-<div class="col-12 col-md-4 rv"><div class="stat"><b id="sPinjam">0</b>Sedang dipinjam</div></div></div></div></section>
-<section class="sec" aria-label="Buku pilihan"><div class="container"><div class="judul rv"><h2>Buku Pilihan</h2><p class="mut">Pilihan buku yang siap kamu pinjam hari ini.</p></div><div class="row g-4" id="featured"></div></div></section>
-<section class="sec alt" id="kategori" aria-label="Kategori"><div class="container"><div class="judul rv"><h2>Jelajahi Kategori</h2></div><div class="row g-3"><div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Teknologi"><i class="bi bi-cpu"></i>Teknologi</a></div><div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Pendidikan"><i class="bi bi-mortarboard"></i>Pendidikan</a></div><div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Novel"><i class="bi bi-journal-richtext"></i>Novel</a></div><div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Sejarah"><i class="bi bi-hourglass-split"></i>Sejarah</a></div><div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Bisnis"><i class="bi bi-graph-up-arrow"></i>Bisnis</a></div><div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Sains"><i class="bi bi-moon-stars"></i>Sains</a></div></div></div></section>
-<section class="sec" aria-label="Keunggulan"><div class="container"><div class="judul rv"><h2>Mengapa Memilih Kami</h2></div><div class="row g-4"><div class="col-12 col-md-4 rv"><div class="why"><i class="bi bi-lightning-charge"></i><h3 class="mt-2">Pencarian instan</h3><p class="mut mb-0">Temukan judul atau pengarang secara real-time tanpa menunggu.</p></div></div><div class="col-12 col-md-4 rv"><div class="why"><i class="bi bi-bookmark-heart"></i><h3 class="mt-2">Pinjam dalam satu klik</h3><p class="mut mb-0">Status buku langsung diperbarui dan tersimpan di perangkatmu.</p></div></div><div class="col-12 col-md-4 rv"><div class="why"><i class="bi bi-moon-stars"></i><h3 class="mt-2">Nyaman dibaca</h3><p class="mut mb-0">Mode terang dan gelap yang menyesuaikan suasana belajarmu.</p></div></div></div></div></section>
-<section class="quote"><div class="container rv"><blockquote>&ldquo;A reader lives a thousand lives before he dies.&rdquo;<footer class="quote-source mt-3 fs-6">George R.R. Martin</footer></blockquote></div></section>
-</main>
-<footer><div class="container"><div class="row g-4">
-<div class="col-12 col-md-5"><a class="brand fs-3" href="index.html"><i class="bi bi-book-half me-2"></i>PERPUSTAKAAN KEL 2</a><p class="mt-2">Perpustakaan digital kampus untuk menemukan cerita dan pengetahuan.</p></div>
-<div class="col-6 col-md-3"><h4>Navigasi</h4><ul class="list-unstyled"><li><a href="index.html">Home</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="peminjaman.html">Peminjaman Saya</a></li><li><a href="tentang.html">Tentang Kami</a></li></ul></div>
-<div class="col-6 col-md-4"><h4>Kontak</h4><p class="mb-1"><i class="bi bi-geo-alt me-2"></i>Gedung Perpustakaan, Pontianak</p><p class="mb-1"><i class="bi bi-envelope me-2"></i>halo@theliterary.ac.id</p><p><i class="bi bi-clock me-2"></i>Senin - Jumat, 08.00 - 17.00</p></div>
-</div><hr><small>&copy; 2026 PERPUSTAKAAN KEL 2. UAS Praktikum Pemrograman Web Dasar (K2).</small></div></footer>
-<button id="top" aria-label="Kembali ke atas"><i class="bi bi-arrow-up"></i></button>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="js/data.js"></script>
-<script src="js/script.js"></script>
-</body></html>
+    <div id="loader"><i class="bi bi-book-half"></i><b>PERPUSTAKAAN KEL 2</b></div>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top" aria-label="Navigasi utama">
+            <div class="container">
+                <a class="navbar-brand brand" href="index.html"><i class="bi bi-book-half me-2"></i>PERPUSTAKAAN KEL
+                    2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nv"
+                    aria-label="Buka menu"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="nv">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="katalog.html">Katalog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="peminjaman.html">Peminjaman Saya</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang Kami</a></li>
+                        <li class="nav-item"><button type="button" id="tema" class="btn-tema"
+                                aria-label="Ganti tema terang atau gelap"><i class="bi bi-moon-stars-fill"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" aria-label="Pengantar">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-12 col-lg-6 rv"><span class="chip"><i class="bi bi-stars me-1"></i>Digital Library
+                            Kampus</span>
+                        <h1>Setiap Buku Membuka Dunia Baru.</h1>
+                        <p class="lead">Temukan cerita, jelajahi pengetahuan, dan pilih buku favoritmu melalui katalog
+                            perpustakaan digital kampus.</p>
+                        <div><a class="btn-rose" href="katalog.html">Jelajahi Katalog</a><a class="btn-soft"
+                                href="#kategori">Lihat Kategori</a></div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="scene" aria-hidden="true"><span class="fb fb1"></span><span
+                                class="fb fb2"></span><span class="fb fb3"></span><span class="fb fb4"></span>
+                            <div class="buku3d">
+                                <div class="hal kiri"></div>
+                                <div class="hal kanan"></div>
+                                <div class="hal flip"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec" aria-label="Pencarian">
+            <div class="container">
+                <form id="formCari" class="cari"><i class="bi bi-search"></i><input type="search" id="cariHome"
+                        class="form-control" placeholder="Cari judul atau pengarang..." required minlength="2"
+                        aria-label="Cari buku"><button class="btn-rose" type="submit">Cari</button></form>
+            </div>
+        </section>
+        <section class="sec alt" aria-label="Statistik perpustakaan">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-12 col-md-4 rv">
+                        <div class="stat"><b id="sTotal">0</b>Total koleksi buku</div>
+                    </div>
+                    <div class="col-12 col-md-4 rv">
+                        <div class="stat"><b id="sTersedia">0</b>Buku tersedia</div>
+                    </div>
+                    <div class="col-12 col-md-4 rv">
+                        <div class="stat"><b id="sPinjam">0</b>Sedang dipinjam</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec" aria-label="Buku pilihan">
+            <div class="container">
+                <div class="judul rv">
+                    <h2>Buku Pilihan</h2>
+                    <p class="mut">Pilihan buku yang siap kamu pinjam hari ini.</p>
+                </div>
+                <div class="row g-4" id="featured"></div>
+            </div>
+        </section>
+        <section class="sec alt" id="kategori" aria-label="Kategori">
+            <div class="container">
+                <div class="judul rv">
+                    <h2>Jelajahi Kategori</h2>
+                </div>
+                <div class="row g-3">
+                    <div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Teknologi"><i
+                                class="bi bi-cpu"></i>Teknologi</a></div>
+                    <div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Pendidikan"><i
+                                class="bi bi-mortarboard"></i>Pendidikan</a></div>
+                    <div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Novel"><i
+                                class="bi bi-journal-richtext"></i>Novel</a></div>
+                    <div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Sejarah"><i
+                                class="bi bi-hourglass-split"></i>Sejarah</a></div>
+                    <div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Bisnis"><i
+                                class="bi bi-graph-up-arrow"></i>Bisnis</a></div>
+                    <div class="col-6 col-md-4 rv"><a class="kat" href="katalog.html?kat=Sains"><i
+                                class="bi bi-moon-stars"></i>Sains</a></div>
+                </div>
+            </div>
+        </section>
+        <section class="sec" aria-label="Keunggulan">
+            <div class="container">
+                <div class="judul rv">
+                    <h2>Mengapa Memilih Kami</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-12 col-md-4 rv">
+                        <div class="why"><i class="bi bi-lightning-charge"></i>
+                            <h3 class="mt-2">Pencarian instan</h3>
+                            <p class="mut mb-0">Temukan judul atau pengarang secara real-time tanpa menunggu.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 rv">
+                        <div class="why"><i class="bi bi-bookmark-heart"></i>
+                            <h3 class="mt-2">Pinjam dalam satu klik</h3>
+                            <p class="mut mb-0">Status buku langsung diperbarui dan tersimpan di perangkatmu.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 rv">
+                        <div class="why"><i class="bi bi-moon-stars"></i>
+                            <h3 class="mt-2">Nyaman dibaca</h3>
+                            <p class="mut mb-0">Mode terang dan gelap yang menyesuaikan suasana belajarmu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="quote">
+            <div class="container rv">
+                <blockquote>&ldquo;A reader lives a thousand lives before he dies.&rdquo;<footer
+                        class="quote-source mt-3 fs-6">George R.R. Martin</footer>
+                </blockquote>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-md-5"><a class="brand fs-3" href="index.html"><i
+                            class="bi bi-book-half me-2"></i>PERPUSTAKAAN KEL 2</a>
+                    <p class="mt-2">Perpustakaan digital kampus untuk menemukan cerita dan pengetahuan.</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h4>Navigasi</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="katalog.html">Katalog</a></li>
+                        <li><a href="peminjaman.html">Peminjaman Saya</a></li>
+                        <li><a href="tentang.html">Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-4">
+                    <h4>Kontak</h4>
+                    <p class="mb-1"><i class="bi bi-geo-alt me-2"></i>Gedung Perpustakaan, Pontianak</p>
+                    <p class="mb-1"><i class="bi bi-envelope me-2"></i>halo@theliterary.ac.id</p>
+                    <p><i class="bi bi-clock me-2"></i>Senin - Jumat, 08.00 - 17.00</p>
+                </div>
+            </div>
+            <hr><small>&copy; 2026 PERPUSTAKAAN KEL 2. UAS Praktikum Pemrograman Web Dasar (K2).</small>
+        </div>
+    </footer>
+    <button id="top" aria-label="Kembali ke atas"><i class="bi bi-arrow-up"></i></button>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
