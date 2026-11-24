@@ -1,4 +1,4 @@
-/* Data awal buku (array JavaScript statis) */
+//  pengerjaan laya(berhubungan dengan katalog buku)  )
 const DATA_BUKU = [
   { isbn:'9786020000011', judul:'Sistem Informasi Manajemen', pengarang:'Raymond McLeod', penerbit:'Salemba Empat', tahun:2012, kategori:'Teknologi', status:'tersedia', cover:'bi-diagram-3', sinopsis:'Pengantar konsep sistem informasi dalam pengelolaan organisasi modern, dari data hingga keputusan strategis.' },
   { isbn:'9786020000028', judul:'Pemrograman Web dengan HTML dan CSS', pengarang:'Budi Raharjo', penerbit:'Informatika', tahun:2019, kategori:'Teknologi', status:'tersedia', cover:'bi-code-slash', sinopsis:'Panduan membangun halaman web dari dasar hingga responsif, lengkap dengan latihan proyek kecil.' },

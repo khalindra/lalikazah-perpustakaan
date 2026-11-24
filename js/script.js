@@ -1,4 +1,3 @@
-/* ===== PERPUSTAKAAN KEL 2 - script.js ===== */
 const K = { b: 'lit_buku', p: 'lit_pinjam', r: 'lit_riwayat', t: 'lit_tema' };
 function ambil(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } }
 function simpan(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage diblokir */ } }
@@ -19,11 +18,11 @@ $(function () {
   const toast = (icon, title, text) => window.Swal ? Swal.fire({ icon, title, text, confirmButtonColor: '#FB6F92', background: getComputedStyle(document.body).getPropertyValue('--card') || '#fff', color: getComputedStyle(document.body).color })
     : alert(title + '\n' + text);
 
-  /* ---------- Loading screen ---------- */
+  
   if (sessionStorage.getItem('lit_load')) $('#loader').remove();
   else setTimeout(() => { $('#loader').fadeOut(500, function () { $(this).remove(); }); sessionStorage.setItem('lit_load', 1); }, 1100);
 
-  /* ---------- Tema terang/gelap ---------- */
+  //darkmode
   const ikonTema = () => $('#tema i').attr('class', 'bi ' + (document.documentElement.dataset.theme === 'dark' ? 'bi-sun-fill' : 'bi-moon-stars-fill'));
   $('#tema').on('click', function () {
     const t = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
@@ -32,7 +31,7 @@ $(function () {
   });
   ikonTema();
 
-  /* ---------- Efek klik pink yang tidak menghalangi navigasi ---------- */
+  // Efek klik ripple (hanya untuk mouse, bukan sentuhan)
   if (matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     $(document).on('click', function (e) {
       const ripple = document.createElement('span');
@@ -44,7 +43,7 @@ $(function () {
     });
   }
 
-  /* ---------- Transisi halaman + back to top + scroll reveal ---------- */
+  
   $(document).on('click', 'a[href]', function (e) {
     const h = $(this).attr('href');
     if (/^[a-z]+\.html/.test(h) && !e.ctrlKey && !e.metaKey && !$(this).attr('target')) {
@@ -56,7 +55,7 @@ $(function () {
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } }), { threshold: .12 }) : null;
   const reveal = () => $('.rv').not('.show').each(function () { io ? io.observe(this) : $(this).addClass('show'); });
 
-  /* ---------- Komponen: cover & kartu buku ---------- */
+  
   const cover = b => '<div class="cw"><div class="cover k-' + esc(b.kategori.toLowerCase()) + '"><span>' + esc(b.judul) + '</span><i class="bi ' + (b.cover || 'bi-book') + '"></i></div></div>';
   const badge = b => b.status === 'tersedia' ? '<span class="bdg ok">Tersedia</span>' : '<span class="bdg out">Dipinjam</span>';
   function kartu(b, list) {
@@ -66,7 +65,7 @@ $(function () {
       '</div><a class="btn-soft mt-auto text-center" href="detail.html?isbn=' + b.isbn + '">Lihat Detail</a></div></article></div>';
   }
 
-  /* ---------- Statistik (angka berhitung naik) ---------- */
+  
   function statistik() {
     const t = buku.filter(b => b.status === 'tersedia').length;
     [['#sTotal', buku.length], ['#sTersedia', t], ['#sPinjam', buku.length - t]].forEach(function (a) {
@@ -74,14 +73,14 @@ $(function () {
     });
   }
 
-  /* ================= HOME ================= */
+    //home
   if (pg === 'home') {
     $('#featured').html(buku.filter(b => b.status === 'tersedia').slice(0, 4).map(b => kartu(b)).join(''));
     $('#formCari').on('submit', function (e) { e.preventDefault(); const q = $('#cariHome').val().trim(); if (q.length < 2) return; location.href = 'katalog.html?q=' + encodeURIComponent(q); });
     statistik();
   }
 
-  /* ================= KATALOG ================= */
+    //katalog
   if (pg === 'katalog') {
     const url = new URLSearchParams(location.search); let list = false;
     $('#cari').val(url.get('q') || ''); $('#fKat').val(url.get('kat') || '');
@@ -120,7 +119,7 @@ $(function () {
     render();
   }
 
-  /* ================= DETAIL ================= */
+  // Detail buku
   if (pg === 'detail') {
     const b = cari(new URLSearchParams(location.search).get('isbn'));
     if (!b) { $('#detail').html('<div class="kosong"><i class="bi bi-emoji-frown"></i><h2>Buku tidak ditemukan</h2><a class="btn-rose" href="katalog.html">Kembali ke Katalog</a></div>'); }
@@ -141,7 +140,7 @@ $(function () {
     }
   }
 
-  /* ================= PEMINJAMAN ================= */
+  // Peminjaman
   if (pg === 'peminjaman') {
     function render() {
       $('#kosongPinjam').toggleClass('d-none', pinjam.length > 0);
